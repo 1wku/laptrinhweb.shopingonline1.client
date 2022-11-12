@@ -1,5 +1,6 @@
 <template>
   <div>
+    <LayoutFixedMember />
     <LayoutHeader />
     <Nuxt />
     <LayoutFooter />
