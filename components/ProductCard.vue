@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="`product/${id}`">
+  <nuxt-link :to="`/product/${id}`">
     <div class="card">
       <div v-if="!status" class="label-empty">Hết hàng</div>
       <div class="card__img">
@@ -7,7 +7,10 @@
       </div>
       <div class="card__info">
         <h4 class="card__name">{{ name }}</h4>
-        <p class="card__price body-2">{{ price }} vnđ</p>
+        <div class="card__info-sub">
+          <p class="card__info-price">{{ price }} vnđ</p>
+          <p class="body-3">Mã SP: {{ id }}</p>
+        </div>
       </div>
     </div>
   </nuxt-link>
@@ -24,8 +27,8 @@ export default {
         'https://images.unsplash.com/photo-1667493620964-5db1a9529f14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80',
     },
     id: {
-      type: String,
-      default: '#',
+      type: Number,
+      default: -1,
     },
     price: {
       type: Number,
@@ -56,6 +59,15 @@ export default {
   overflow: hidden;
   position: relative;
 
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  transition: all 0.3s ease-in-out;
+  padding-bottom: 1rem;
+
+  &:hover {
+    border-bottom: 1px solid #ff5f17;
+    border-top: 1px solid #ff5f17;
+  }
   &__img {
     width: 100%;
     height: 0;
@@ -80,10 +92,17 @@ export default {
     align-items: start;
     justify-content: space-between;
     width: fill;
+
+    border-top: 1px dashed #555;
+    padding-top: 1rem;
+
+    &-price {
+      color: #ff5f17;
+    }
   }
 
   &__name {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
   &__price {
   }
@@ -95,6 +114,12 @@ export default {
     padding: 0.5rem 1rem;
     background: #ff5f17;
     color: white;
+  }
+  &__info-sub {
+    width: fill;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
 </style>

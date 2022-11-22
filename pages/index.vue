@@ -2,7 +2,7 @@
   <div>
     <home-banner />
     <HomeCategories />
-    <HomeBestProduct />
+    <ProductsList />
   </div>
 </template>
 

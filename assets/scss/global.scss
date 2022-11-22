@@ -1,2 +1,10 @@
 @import './reset';
 @import './typography';
+
+html{
+  padding-top: 80px;
+}
+
+button {
+  cursor: pointer;
+}

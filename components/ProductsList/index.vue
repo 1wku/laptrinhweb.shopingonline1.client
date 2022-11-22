@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <h2>Sản phẩm nổi bật</h2>
+    <h2 :v-if="title !== ''">{{ title }}</h2>
     <div class="products">
       <product-card
-        v-for="product in products"
+        v-for="product in products.slice(0, 8)"
         :key="product.id"
         v-bind="product"
       />
@@ -11,13 +11,16 @@
   </div>
 </template>
 <script>
-import ProductCard from '../../ProductCard.vue'
 export default {
   name: 'HomeBestProduct',
-  components: { ProductCard },
-  data() {
-    return {
-      products: [
+  props: {
+    title: { type: String, default: 'Sản phẩm mới nhất' },
+    limit: { type: Number, default: 6 },
+    column: { type: Number, default: 4 },
+    products: {
+      type: Array,
+      // eslint-disable-next-line vue/require-valid-default-prop
+      default: [
         {
           id: '001',
           name: 'Urbas SC - Mule',
@@ -91,6 +94,14 @@ export default {
           status: true,
         },
       ],
+    },
+  },
+  data() {
+    return {
+      productLimited:
+        this.limit === -1
+          ? this.products
+          : this.products.slice(0, this.limit),
     }
   },
 }
@@ -99,7 +110,7 @@ export default {
 <style lang="scss" scoped>
 .container {
   position: relative;
-  width: 100%;
+  width: inherit;
 
   display: flex;
   flex-direction: column;
@@ -111,8 +122,13 @@ export default {
   }
 }
 .products {
+  width: inherit;
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(0, 280px)
+  );
+  grid-template-rows: auto auto;
   align-items: center;
   width: fill;
   grid-gap: 2rem;

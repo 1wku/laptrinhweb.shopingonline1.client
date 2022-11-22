@@ -41,7 +41,6 @@ export default {
   margin-bottom: 2rem;
   overflow: hidden;
   position: relative;
-  margin-top: 80px;
 
   &__nav {
     position: absolute;
