@@ -1,5 +1,9 @@
 <template>
-  <home-banner />
+  <div>
+    <home-banner />
+    <HomeCategories />
+    <HomeBestProduct />
+  </div>
 </template>
 
 <script>

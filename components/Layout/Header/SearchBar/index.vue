@@ -11,7 +11,6 @@ export default {
 }
 </script>
 
-
 <style lang="scss" scoped>
 .searchbar {
   display: flex;
@@ -24,6 +23,9 @@ export default {
   padding: 0.5rem;
   & > span {
     margin-right: 0.5rem;
+  }
+  & > input {
+    background: transparent;
   }
 }
 </style>
