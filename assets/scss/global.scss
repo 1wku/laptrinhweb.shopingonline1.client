@@ -1,8 +1,12 @@
 @import './reset';
 @import './typography';
 
-html{
+html {
   padding-top: 80px;
+  overflow-x: hidden;
+}
+
+body {
 }
 
 button {

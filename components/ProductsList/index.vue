@@ -124,6 +124,7 @@ export default {
 .products {
   width: inherit;
   display: grid;
+  justify-content: space-between;
   grid-template-columns: repeat(
     auto-fill,
     minmax(0, 280px)
