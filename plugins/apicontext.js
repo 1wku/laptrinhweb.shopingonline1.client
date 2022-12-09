@@ -9,7 +9,7 @@ export default ({ app }, inject) => {
     }
     const queryFormarted = queryString.stringify({
       ...querys,
-      // api_key: process.env.VUE_APP_API_KEY,
+      // api_key: process.env.VpUE_APP_API_KEY,
     })
     const objMeta = {
       method,
