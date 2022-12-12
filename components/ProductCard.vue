@@ -103,6 +103,11 @@ export default {
 
   &__name {
     margin-bottom: 1rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
   }
   &__price {
   }
